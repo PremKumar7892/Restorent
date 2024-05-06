@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominos</title>
+</head>
+<style>
+    body{
+        background-image: url(image/ce.jpeg);
+        background-repeat: no-repeat;
+        background-position: 450px;
+        margin: 5px;
+        text-align: center;
+
+    
+        
+    }
+    div{
+    border: 10px solid black;
+    width: 560px;
+    border-radius: 10px;
+    /*backdrop-filter: blur(2px) contrast(40%) brightness(60%) grayscale(95%);*/
+    height: 400px;
+    padding: 10px;
+    margin: 100px 450px;
+    padding-bottom: 10em;
+    backdrop-filter: blur(10px);
+
+}
+input[type='radio']{
+    accent-color: red;
+    height: 15px;
+    width: 15px;
+}
+</style>
+<body><div><center>
+    <h1>Govinda❕❗❕</h1>
+<label for="">
+    <input type="radio" name="drink" id="tea">Tea
+</label>
+<label for="">
+    <input type="radio" name="drink" id="coeffe">Coeffe
+</label>
+<label for="">
+    <input type="radio" name="drink" id="milk">Milk
+</label>
+<label for="">
+    <input type="radio" name="drink" id="bmilk">Badam Milk
+    <br><br>
+    <button onclick="add()">Add</button>
+    <br><br>
+    <button onclick="total()">Total</button>
+    <br><br>
+    <p>Tea count :<span id="teacount">0</span></p>
+    <p>coeffe count :<span id="coeffecount">0</span></p>
+    <p>Milk count :<span id="milkcount">0</span></p>
+    <p>Badam count :<span id="bmilkcount">0</span></p>
+    <p id="bill"></p>
+</label></center>
+</div>
+    <script>
+        let teacount = 0;
+        let coeffecount = 0;
+        let milkcount = 0;
+        let bmilkcount = 0;
+
+        let tearate = 20000;
+        let coefferate = 30000;
+        let milkrate = 10000;
+        let bmilkrate = 50000;
+        function add(){
+            const selecteddrink = document.querySelector('input[name = "drink"]:checked');
+            if(selecteddrink){
+                const drinktype = selecteddrink.id;
+                if(drinktype === 'tea'){
+                    teacount++;
+                    document.getElementById('teacount').textContent = teacount;
+                } else if(drinktype === "coeffe"){
+                    coeffecount++;
+                    document.getElementById('coeffecount').textContent = coeffecount;
+            }else if(drinktype === "milk"){
+                    milkcount++;
+                    document.getElementById('milkcount').textContent = milkcount;
+        }else if(drinktype === "bmilk"){
+                    bmilkcount++;
+                    document.getElementById('bmilkcount').textContent = bmilkcount;
+        } 
+    }
+}
+    function total(){
+        let total = (teacount *tearate)+(coeffecount *coefferate)+(milkcount *milkrate)+(bmilkcount *bmilkrate);
+        document.getElementById('bill').textContent = "Total :"+"₹ "+total;
+    }
+
+
+    </script>
+</label>
+</body>
+</html>
